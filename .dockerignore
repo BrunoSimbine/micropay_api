@@ -1,0 +1,19 @@
+# Ignorar arquivos e diretórios específicos
+bin/
+obj/
+node_modules/
+.vs/
+*.user
+*.suo
+*.bak
+
+# Ignorar arquivos gerados durante a compilação
+*.dll
+*.exe
+*.pdb
+*.xml
+*.json
+
+# Ignorar arquivos de log
+*.log
+logs/
