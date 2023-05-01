@@ -1,0 +1,54 @@
+# Arquivos gerados pelo Visual Studio
+*.obj
+*.pdb
+*.exe
+*.dll
+*.svclog
+*.bak
+*.cache
+*.class
+*.psess
+*.vsp
+*.vspx
+*.aps
+*.clb
+*.exp
+*.lib
+*.idb
+*.ipch
+*.ncb
+*.pch
+*.sbr
+*.scc
+*.tlb
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.user
+*.userprefs
+*.ilk
+*.tlog
+*.obj.*
+*.pdb.*
+*.ipdb
+*.sdf
+*.opensdf
+*.suo
+
+# Arquivos gerados pelo Visual Studio Code
+.vscode/
+
+# Pasta de pacotes NuGet gerada pelo Visual Studio
+packages/
+
+# Pasta binária
+bin/
+obj/
+
+# Arquivos de publicação do Visual Studio
+_PublishedWebsites/
+pubxml/
+
+# Arquivos de backup gerados pelo IIS
+App_Data/*.bak
