@@ -1,10 +1,10 @@
 using System.Security.Claims;
 using VenusInc.DTO;
-using VenusInc.Models;
-using VenusInc.Services.AuthService;
-using VenusInc.ViewModels;
+using micropay.Models;
+using micropay.Services.AuthService;
+using micropay.ViewModels;
 
-namespace VenusInc.Services.UserService;
+namespace micropay.Services.UserService;
 
 public class UserService : IUserService
 {
@@ -26,10 +26,9 @@ public class UserService : IUserService
     {
         return users.Select(user => new UserViewModel
         {
-            Contact = user.Contact,
-            Email = user.Email,
             Id = user.Id,
-            Name = user.Name
+            Name = user.Name,
+            Surname = user.Surname
         }).ToList();
     }
 
@@ -39,11 +38,9 @@ public class UserService : IUserService
         var user = new User()
         {
             Name = userDto.Name,
-            Email = userDto.Email,
-            Contact = userDto.Contact
+            Surname = userDto.Surname,
+            Phone = userDto.Phone
         };
-        
-        user.Email = userDto.Email;
         user.PasswordHash = passwordHash;
         user.PasswordSalt = passwordSalt;
 
