@@ -11,4 +11,6 @@ public class DataContext : DbContext
         optionsBuilder.UseMySql("server=34.229.96.132;database=mydb;user=root;password=bruno1234;", version);   
     }
     public DbSet<User> Users { get; set; }
+    public DbSet<Token> Tokens { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
 }
