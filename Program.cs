@@ -5,7 +5,6 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using micropay.Data;
 using micropay.Services.AuthService;
-using micropay.Services.DocumentService;
 using micropay.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
