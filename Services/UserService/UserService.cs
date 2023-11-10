@@ -32,9 +32,9 @@ public class UserService : IUserService
         }).ToList();
     }
 
-    public User Create(UserDTO userDto)
+    public User Create(UserDto userDto)
     {
-        _authService.CreatePasswordHash(userDto.AuthId, out byte[] passwordHash, out byte[] passwordSalt);
+        _authService.CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
         var user = new User()
         {
             Name = userDto.Name,
