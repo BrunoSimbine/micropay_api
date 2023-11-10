@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using VenusInc.DTO;
+using micropay.Dto;
 using micropay.Models;
 using micropay.Services.AuthService;
 using micropay.ViewModels;
