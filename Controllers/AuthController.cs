@@ -28,7 +28,7 @@ public class AuthController : ControllerBase
 
     [HttpPost]
     [Route("register")]
-    public async Task<ActionResult<User>> Regiser(UserDTO userDto)
+    public async Task<ActionResult<User>> Regiser(UserDto userDto)
     {
         var user = _userService.Create(userDto);
         _context.Users.Add(user);
@@ -38,7 +38,7 @@ public class AuthController : ControllerBase
 
     [HttpPost]
     [Route("login")]
-    public async Task<ActionResult> Login(LoginDTO loginDto)
+    public async Task<ActionResult> Login(LoginDto loginDto)
     {
         var user = await _context.Users.FirstOrDefaultAsync(x => x.Phone == loginDto.Phone);
         if (user == null)
