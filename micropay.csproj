@@ -6,13 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
-    </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspnetCore.Authentication.JwtBearer" Version="7.0.5" />
@@ -24,8 +17,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.29.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.Mysql" Version="7.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.29.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
   </ItemGroup>
 
 </Project>
