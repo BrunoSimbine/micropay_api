@@ -8,7 +8,7 @@ public class DataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var version = new MySqlServerVersion(new Version(8, 0, 29));
-        optionsBuilder.UseMySql("server=34.229.96.132;database=mydb;user=root;password=bruno1234;", version);   
+        optionsBuilder.UseMySql("server=52.90.245.54;database=mydb;user=bruno;password=Bruno@123456789/@Senha09;", version);   
     }
     public DbSet<User> Users { get; set; }
     public DbSet<Token> Tokens { get; set; }
