@@ -14,7 +14,7 @@ namespace micropay.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
+public class TokenController : ControllerBase
 {
     private readonly DataContext _context;
     private readonly IAuthService _authService;
