@@ -19,7 +19,7 @@ public class TokenController : ControllerBase
     private readonly DataContext _context;
     private readonly IAuthService _authService;
     private readonly IUserService _userService;
-    public AuthController(DataContext context, IAuthService authService, IUserService userService)
+    public TokenController(DataContext context, IAuthService authService, IUserService userService)
     {
         _authService = authService;
         _userService = userService;
