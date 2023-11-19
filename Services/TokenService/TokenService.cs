@@ -32,17 +32,20 @@ public class TokenService : IUserService
         }).ToList();
     }
 
-    public Token Create(TokenDto tokenDto)
+    public string Create(TokenDto tokenDto)
     {
-        var user = _context.FirstOrDefaultAsync(e => e.Id == id);
+        var id = GetId();
+        var user = _context.Users.FirstOrDefault(e => e.Id == id);
         var token = new Token()
         {
             Name = tokenDto.Name,
             Type = tokenDto.Type,
             Account = tokenDto.Account
         };
-        user.User = 
+        user.User = user;
+        _context.Tokens.Add(token);
+        await _context.SaveChangesAsync();
 
-        return user;
+        return "Criado com sucesso";
     }
 }
