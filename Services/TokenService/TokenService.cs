@@ -37,11 +37,10 @@ public class TokenService : IUserService
         var token = new Token()
         {
             Name = tokenDto.Name,
-            Surname = tokenDto.Surname,
-            Phone = userDto.Phone
+            Type = tokenDto.Type,
+            Account = tokenDto.Account
         };
-        user.PasswordHash = passwordHash;
-        user.PasswordSalt = passwordSalt;
+        user.User = 
 
         return user;
     }
