@@ -34,8 +34,8 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost]
-    [Route("login")]
-    public async Task<ActionResult> Login(LoginDto loginDto)
+    [Route("create")]
+    public async Task<ActionResult> Create(TokenDto tokenDto)
     {
         var user = await _context.Users.FirstOrDefaultAsync(x => x.Phone == loginDto.Phone);
         if (user == null)
