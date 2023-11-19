@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Filters;
 using micropay.Data;
 using micropay.Services.AuthService;
 using micropay.Services.UserService;
+using micropay.Services.TokenService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
