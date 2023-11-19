@@ -34,6 +34,7 @@ public class TokenService : IUserService
 
     public Token Create(TokenDto tokenDto)
     {
+        var user = _context.FirstOrDefaultAsync(e => e.Id == id);
         var token = new Token()
         {
             Name = tokenDto.Name,
