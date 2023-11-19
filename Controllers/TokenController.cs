@@ -28,12 +28,9 @@ public class AuthController : ControllerBase
 
     [HttpGet]
     [Route("get")]
-    public async Task<ActionResult<User>> Regiser(UserDto userDto)
+    public async Task<ActionResult<User>> Regiser()
     {
-        var user = _userService.Create(userDto);
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return Ok(user);
+        return Ok("Ola Mundo!");
     }
 
     [HttpPost]
