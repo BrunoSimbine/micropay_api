@@ -32,13 +32,12 @@ public class TokenService : IUserService
         }).ToList();
     }
 
-    public User Create(UserDto userDto)
+    public Token Create(TokenDto tokenDto)
     {
-        _authService.CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
-        var user = new User()
+        var token = new Token()
         {
-            Name = userDto.Name,
-            Surname = userDto.Surname,
+            Name = tokenDto.Name,
+            Surname = tokenDto.Surname,
             Phone = userDto.Phone
         };
         user.PasswordHash = passwordHash;
