@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using micropay.Dto;
 using micropay.Models;
+using Microsoft.IdentityModel.Tokens;
 using micropay.Data;
 using micropay.Services.AuthService;
 using micropay.ViewModels;
