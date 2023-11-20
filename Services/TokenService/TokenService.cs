@@ -28,12 +28,12 @@ public class TokenService : ITokenService
         return Guid.Parse(id!);
     }
 
-    public List<UserViewModel> GetUsers(List<User> users)
+    public async Task<List<TokenViewModel>> GetTokens()
     {
-        return users.Select(user => new UserViewModel
+        return _context.Tokens.Select(token => new TokenViewModel
         {
-            Id = user.Id,
-            Name = user.Name,
+            Id = token.Id,
+            Name = token.Name,
             Surname = user.Surname
         }).ToList();
     }
