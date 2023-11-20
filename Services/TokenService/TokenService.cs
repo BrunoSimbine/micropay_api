@@ -34,7 +34,8 @@ public class TokenService : ITokenService
         {
             Id = token.Id,
             Name = token.Name,
-            Surname = user.Surname
+            Type = token.Type,
+            Account = token.Account
         }).ToListAsync();
     }
 
