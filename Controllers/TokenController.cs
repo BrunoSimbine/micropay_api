@@ -29,7 +29,8 @@ public class TokenController : ControllerBase
     [Route("get")]
     public async Task<ActionResult<TokenViewModel>> GetAll()
     {
-        return Ok("Ola Mundo!");
+        var tokens = await _tokenService.GetAll();
+        return Ok(tokens);
     }
 }
 
