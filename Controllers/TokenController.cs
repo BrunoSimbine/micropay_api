@@ -8,7 +8,7 @@ using micropay.Data;
 using micropay.Dto;
 using micropay.Models;
 using micropay.Services.AuthService;
-using micropay.Services.UserService;
+using micropay.Services.AuthService;
 
 namespace micropay.Controllers;
 
@@ -24,7 +24,7 @@ public class TokenController : ControllerBase
 
     [HttpGet]
     [Route("get")]
-    public async Task<ActionResult<User>> Regiser()
+    public async Task<ActionResult<User>> GetAll()
     {
         return Ok("Ola Mundo!");
     }
