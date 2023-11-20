@@ -38,7 +38,7 @@ public class TokenService : ITokenService
         }).ToList();
     }
 
-    public string Create(TokenDto tokenDto)
+    public async Task<string> Create(TokenDto tokenDto)
     {
         var id = GetId();
         var user = _context.Users.FirstOrDefault(e => e.Id == id);
@@ -48,7 +48,7 @@ public class TokenService : ITokenService
             Type = tokenDto.Type,
             Account = tokenDto.Account
         };
-        user.User = user;
+        user.UserId = id;
         _context.Tokens.Add(token);
         await _context.SaveChangesAsync();
 
