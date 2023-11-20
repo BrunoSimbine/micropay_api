@@ -9,7 +9,7 @@ using micropay.Dto;
 using micropay.Models;
 using micropay.ViewModels;
 using micropay.Services.AuthService;
-using micropay.Services.AuthService;
+using micropay.Services.TokenService;
 
 namespace micropay.Controllers;
 
@@ -29,7 +29,7 @@ public class TokenController : ControllerBase
     [Route("get")]
     public async Task<ActionResult<TokenViewModel>> GetAll()
     {
-        var tokens = await _tokenService.GetAll();
+        var tokens = await _tokenService.GetTokens();
         return Ok(tokens);
     }
 }
