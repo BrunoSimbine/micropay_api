@@ -30,12 +30,12 @@ public class TokenService : ITokenService
 
     public async Task<List<TokenViewModel>> GetTokens()
     {
-        return _context.Tokens.Select(token => new TokenViewModel
+        return await _context.Tokens.Select(token => new TokenViewModel
         {
             Id = token.Id,
             Name = token.Name,
             Surname = user.Surname
-        }).ToList();
+        }).ToListAsync();
     }
 
     public async Task<string> Create(TokenDto tokenDto)
