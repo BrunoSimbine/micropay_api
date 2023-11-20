@@ -7,5 +7,5 @@ namespace micropay.Services.TokenService;
 public interface ITokenService
 {
     Task<string> Create(TokenDto tokenDto);
-    Task<List<TokenViewModel>> GetTokens()
+    Task<List<TokenViewModel>> GetTokens();
 }
