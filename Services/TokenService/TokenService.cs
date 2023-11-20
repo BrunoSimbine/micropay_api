@@ -48,7 +48,7 @@ public class TokenService : ITokenService
             Type = tokenDto.Type,
             Account = tokenDto.Account
         };
-        user.UserId = id;
+        token.User = user;
         _context.Tokens.Add(token);
         await _context.SaveChangesAsync();
 
