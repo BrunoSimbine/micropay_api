@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using micropay.Data;
 using micropay.Dto;
 using micropay.Models;
+using micropay.ViewModels;
 using micropay.Services.AuthService;
 using micropay.Services.AuthService;
 
@@ -24,7 +25,7 @@ public class TokenController : ControllerBase
 
     [HttpGet]
     [Route("get")]
-    public async Task<ActionResult<User>> GetAll()
+    public async Task<ActionResult<TokenViewModel>> GetAll()
     {
         return Ok("Ola Mundo!");
     }
