@@ -6,7 +6,7 @@ using micropay.ViewModels;
 
 namespace micropay.Services.TokenService;
 
-public class TokenService : IUserService
+public class TokenService : ITokenService
 {
     private readonly DataContext _context;
     private readonly IHttpContextAccessor _accessor;
