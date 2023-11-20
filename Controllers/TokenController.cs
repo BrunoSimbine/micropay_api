@@ -18,8 +18,10 @@ namespace micropay.Controllers;
 public class TokenController : ControllerBase
 {
     private readonly DataContext _context;
-    public TokenController(DataContext context)
+    private readonly ITokenService _tokenService;
+    public TokenController(DataContext context, ITokenService tokenService)
     {
+        _tokenService = tokenService;
         _context = context;
     }
 
