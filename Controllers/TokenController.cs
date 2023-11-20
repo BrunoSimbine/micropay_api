@@ -17,12 +17,8 @@ namespace micropay.Controllers;
 public class TokenController : ControllerBase
 {
     private readonly DataContext _context;
-    private readonly IAuthService _authService;
-    private readonly IUserService _userService;
-    public TokenController(DataContext context, IAuthService authService, IUserService userService)
+    public TokenController(DataContext context)
     {
-        _authService = authService;
-        _userService = userService;
         _context = context;
     }
 
@@ -31,21 +27,6 @@ public class TokenController : ControllerBase
     public async Task<ActionResult<User>> Regiser()
     {
         return Ok("Ola Mundo!");
-    }
-
-    [HttpPost]
-    [Route("create")]
-    public async Task<ActionResult> Create(TokenDto tokenDto)
-    {
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.Phone == loginDto.Phone);
-        if (user == null)
-            return NotFound("User Not Found");
-
-        if (!_authService.VerifyPasswordHash(loginDto.Password, user.PasswordHash, user.PasswordSalt))
-            return BadRequest("Wrong Phone or password");
-
-        var token = _authService.CreateToken(user);
-        return Ok(new {Token = token});
     }
 }
 
