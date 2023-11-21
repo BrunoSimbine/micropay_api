@@ -32,5 +32,15 @@ public class TokenController : ControllerBase
         var tokens = await _tokenService.GetTokens();
         return Ok(tokens);
     }
+
+    [HttpPost]
+    [Route("create")]
+    public async Task<ActionResult<TokenViewModel>> Create(TokenDto tokenDto)
+    {
+        var tokens = await _tokenService.GetTokens();
+        return Ok(tokens);
+    }
+
+
 }
 
