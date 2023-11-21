@@ -37,8 +37,8 @@ public class TokenController : ControllerBase
     [Route("create")]
     public async Task<ActionResult<TokenViewModel>> Create(TokenDto tokenDto)
     {
-        var tokens = await _tokenService.GetTokens();
-        return Ok(tokens);
+        var result = await _tokenService.Create(tokenDto);
+        return Ok(result);
     }
 
 
