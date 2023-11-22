@@ -34,10 +34,10 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost]
-    [Route("create")]
-    public async Task<ActionResult<string>> Create(TokenDto tokenDto)
+    [Route("create/{id}")]
+    public async Task<ActionResult<string>> Create([FromBody] TokenDto tokenDto, [FromQuery] Guid id)
     {
-        var result = await _tokenService.Create(tokenDto);
+        var result = await _tokenService.Create(tokenDto, id);
         return Ok(result);
     }
 
