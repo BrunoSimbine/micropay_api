@@ -25,7 +25,7 @@ public class TokenController : ControllerBase
         _context = context;
     }
 
-    [HttpGet]
+    [HttpGet, Authorize]
     [Route("get")]
     public async Task<ActionResult<TokenViewModel>> GetAll()
     {
