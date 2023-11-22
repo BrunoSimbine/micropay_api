@@ -30,7 +30,8 @@ public class TokenService : ITokenService
 
     public async Task<List<TokenViewModel>> GetTokens()
     {
-        return await _context.Tokens.Select(token => new TokenViewModel
+        var id = GetId();
+        return await _context.Tokens.Where(p => p.UserId = id).Select(token => new TokenViewModel
         {
             Id = token.Id,
             Name = token.Name,
