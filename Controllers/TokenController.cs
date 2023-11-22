@@ -34,7 +34,7 @@ public class TokenController : ControllerBase
         return Ok(tokens);
     }
 
-    [HttpPost]
+    [HttpPost, Authorize]
     [Route("create")]
     public async Task<ActionResult<string>> Create(TokenDto tokenDto)
     {
