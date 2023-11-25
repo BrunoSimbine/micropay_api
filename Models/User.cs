@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace micropay.Models;
 
-[nameof(Phone), IsUnique = true]
+[Index(nameof(Phone), IsUnique = true)]
 public class User
 {
     public Guid Id { get; set; }
