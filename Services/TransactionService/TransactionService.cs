@@ -47,15 +47,16 @@ public class TransactionService : ITransactionService
         }
     }
 
-    public async Task<string> Create(TokenDto tokenDto)
+    public async Task<string> Create(Token token, TransactionDto transactionDto)
     {
         var id = GetId();
         var user = _context.Users.FirstOrDefault(e => e.Id == id);
-        var token = new Token()
+        var transaction = new Transaction()
         {
-            Name = tokenDto.Name,
-            Type = tokenDto.Type,
-            Account = tokenDto.Account
+            Status = "pending",
+            Type = token.Type,
+            Account = token.Account,
+            Amount = transactionDto.Amount
         };
         token.User = user;
         _context.Tokens.Add(token);
