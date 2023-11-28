@@ -62,4 +62,9 @@ public class TransactionService : ITransactionService
 
         return "Criado com sucesso";
     }
+
+    public async Task<string> FinishTransaction()
+    {
+        
+    }
 }
