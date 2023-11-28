@@ -29,7 +29,7 @@ public class TransactionController : ControllerBase
 
     [HttpGet, Authorize]
     [Route("get")]
-    public async Task<ActionResult<TransactionViewModel>> GetAll([FromQuery] Guid TokenId)
+    public async Task<ActionResult<TransactionViewModel>> GetAll([FromQuery] Guid tokenId)
     {
         var token = await _context.Tokens.FirstOrDefaultAsync(e => e.Id == tokenId);
         var transactions = await _transactionService.GetTransactions(token);
