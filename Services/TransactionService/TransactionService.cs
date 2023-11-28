@@ -34,6 +34,11 @@ public class TransactionService : ITransactionService
             return await _context.Transactions.Where(p => p.TokenId == token.Id).Select(transaction => new TransactionViewModel
             {
                 Id = transaction.Id,
+                Created = transaction.Created,
+                Finished = transaction.Finished,
+                Status = transaction.Status,
+                Type = transaction.Type,
+                Account = transaction.Account,
                 Amount = transaction.Amount
             }).ToListAsync();
         }else{
