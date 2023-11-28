@@ -37,7 +37,6 @@ public class TransactionService : ITransactionService
                 Created = transaction.Created,
                 Finished = transaction.Finished,
                 Status = transaction.Status,
-                Account = transaction.Account,
                 Amount = transaction.Amount,
                 Client = transaction.Client
             }).ToListAsync();
