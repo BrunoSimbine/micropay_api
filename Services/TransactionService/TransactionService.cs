@@ -53,8 +53,6 @@ public class TransactionService : ITransactionService
         var transaction = new Transaction()
         {
             Status = "pending",
-            Type = token.Type,
-            Account = token.Account,
             Client = transactionDto.Client,
             Amount = transactionDto.Amount
         };
