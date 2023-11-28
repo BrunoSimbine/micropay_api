@@ -9,4 +9,5 @@ public class TransactionViewModel
     public string Status { get; set; } = string.Empty;
     public DateTime Created { get; set; }
     public DateTime Finished { get; set; }
+    public string Client { get; set; }
 }
