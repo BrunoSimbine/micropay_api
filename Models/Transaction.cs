@@ -9,4 +9,5 @@ public class Transaction
     public DateTime Finished { get; set; }
     public double Amount { get; set; }
     public string Status { get; set; }
+    public string Client { get; set; }
 }
