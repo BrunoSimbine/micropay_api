@@ -7,4 +7,5 @@ public class Transaction
     public Guid Id { get; set; }
     public DateTime Created { get; set; } = DateTime.Now;
     public double Amount { get; set; }
+    public string Status { get; set; }
 }
