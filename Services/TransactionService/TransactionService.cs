@@ -8,14 +8,14 @@ using micropay.Data;
 using micropay.Services.AuthService;
 using micropay.ViewModels;
 
-namespace micropay.Services.TokenService;
+namespace micropay.Services.TransactionService;
 
-public class TokenService : ITokenService
+public class TransactionService : ITransactionService
 {
     private readonly DataContext _context;
     private readonly IHttpContextAccessor _accessor;
 
-    public TokenService(DataContext context, IHttpContextAccessor accessor, IAuthService authService)
+    public TransactionService(DataContext context, IHttpContextAccessor accessor, IAuthService authService)
     {
         _context = context;
         _accessor = accessor;
@@ -26,14 +26,20 @@ public class TokenService : ITokenService
         return Guid.Parse(id!);
     }
 
-    public async Task<List<TokenViewModel>> GetTransactions(Token token)
+    public async Task<List<TransactionViewModel>> GetTransactions(Token token)
     {
         var id = GetId();
-        return await _context.Transactions.Where(p => p.TokenId == token.Id).Select(transaction => new TokenViewModel
+        if (token.UserId == id)
         {
-            Id = transaction.Id,
-            Account = token.Account
-        }).ToListAsync();
+            return await _context.Transactions.Where(p => p.TokenId == token.Id).Select(transaction => new TransactionViewModel
+            {
+                Id = transaction.Id,
+                Amount = transaction.Amount
+            }).ToListAsync();
+        }else{
+            var tokens = new List<TransactionViewModel>();
+            return tokens;
+        }
     }
 
     public async Task<string> Create(TokenDto tokenDto)
