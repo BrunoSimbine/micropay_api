@@ -4,7 +4,7 @@ using micropay.ViewModels;
 
 namespace micropay.Services.TransactionService;
 
-public interface ITokenService
+public interface ITransactionService
 {
     Task<string> Create(TransactionDto transactionDto);
     Task<List<TransactionViewModel>> GetTransactions(Token token);
