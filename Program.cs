@@ -14,6 +14,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: "MyPolicy",
+        policy => {
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+    });
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
@@ -55,7 +64,7 @@ builder.WebHost.ConfigureKestrel(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseCors("MyPolicy");
 app.UseSwagger();
 app.UseSwaggerUI();
 
