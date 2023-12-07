@@ -6,6 +6,10 @@ public class TransactionViewModel
     public double Amount { get; set; }
     public string Status { get; set; } = string.Empty;
     public DateTime Created { get; set; }
+    public DateTime Paid { get; set; }
     public DateTime Finished { get; set; }
     public string Client { get; set; }
+    public string Contact { get; set; }
+    public string Method { get; set; }
+    
 }
