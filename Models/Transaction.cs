@@ -10,4 +10,5 @@ public class Transaction
     public double Amount { get; set; }
     public string Status { get; set; }
     public string Client { get; set; }
+    public string Contact { get; set; }
 }
