@@ -41,7 +41,7 @@ public class TransactionService : ITransactionService
                 Amount = transaction.Amount,
                 Client = transaction.Client,
                 Contact = transaction.Contact,
-                PaymentWay = transaction.PaymentWay
+                Method = transaction.Method
             }).ToListAsync();
         }else{
             var tokens = new List<TransactionViewModel>();
@@ -59,7 +59,7 @@ public class TransactionService : ITransactionService
             Client = transactionDto.Client,
             Contact = transactionDto.Contact,
             Amount = transactionDto.Amount,
-            PaymentWay = "Mpesa"
+            Method = "Mpesa"
         };
         transaction.Token = token;
         _context.Transactions.Add(transaction);
