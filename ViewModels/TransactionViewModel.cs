@@ -10,6 +10,6 @@ public class TransactionViewModel
     public DateTime Finished { get; set; }
     public string Client { get; set; }
     public string Contact { get; set; }
-    public string PayMethod { get; set; }
+    public string Method { get; set; }
     
 }
