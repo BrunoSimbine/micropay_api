@@ -9,7 +9,7 @@ public class Transaction
     public DateTime Paid { get; set; }
     public DateTime Finished { get; set; }
     public double Amount { get; set; }
-    public string PaymentWay { get; set; } = "Mpesa";
+    public string Method { get; set; } = "Mpesa";
     public string Status { get; set; }
     public string Client { get; set; }
     public string Contact { get; set; }
