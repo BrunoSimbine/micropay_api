@@ -35,10 +35,12 @@ public class TransactionService : ITransactionService
             {
                 Id = transaction.Id,
                 Created = transaction.Created,
+                Paid = transaction.Paid,
                 Finished = transaction.Finished,
                 Status = transaction.Status,
                 Amount = transaction.Amount,
-                Client = transaction.Client
+                Client = transaction.Client,
+                Contact = transaction.Contact
             }).ToListAsync();
         }else{
             var tokens = new List<TransactionViewModel>();
@@ -54,6 +56,7 @@ public class TransactionService : ITransactionService
         {
             Status = "pending",
             Client = transactionDto.Client,
+            Contact = transactionDto.Contact,
             Amount = transactionDto.Amount
         };
         transaction.Token = token;
