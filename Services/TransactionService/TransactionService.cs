@@ -71,16 +71,28 @@ public class TransactionService : ITransactionService
         var transaction = _context.Transactions.FirstOrDefault(e => e.Id == Id);
         _context.Remove(transaction);
         await _context.SaveChangesAsync();
-        return Ok("Eliminado");
+        return "Eliminado";
     }
 
     public async Task<string> Pay(Guid Id, string Provider)
     {
         var transaction = _context.Find(e => e.Id == Id);
         transaction.Provider = Provider;
-        transaction.Paid = 
+        transaction.Paid = DateTime.Now;
+        transaction.Status = "done";
+        await _context.SaveChangesAsync();
+        return "Concluido!";
     }
-    Task<string> PayDirect(Guid Id);
+
+    public async Task<string> PayDirect(Guid Id)
+    {
+        var transaction = _context.Find(e => e.Id == Id);
+        transaction.Provider = "Cash";
+        transaction.Paid = DateTime.Now;
+        transaction.Status = "done";
+        await _context.SaveChangesAsync();
+        return "Concluido!";
+    }
 
     
 }
