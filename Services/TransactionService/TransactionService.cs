@@ -76,7 +76,9 @@ public class TransactionService : ITransactionService
 
     public async Task<string> Pay(Guid Id, string Provider)
     {
-        
+        var transaction = _context.Find(e => e.Id == Id);
+        transaction.Provider = Provider;
+        transaction.Paid = 
     }
     Task<string> PayDirect(Guid Id);
 
