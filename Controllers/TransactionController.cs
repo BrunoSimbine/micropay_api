@@ -48,8 +48,8 @@ public class TransactionController : ControllerBase
     [Route("pay/direct")]
     public async Task<ActionResult<string>> PayWithCash([FromQuery] Guid Id)
     {
-        //var result = await _transactionService.Create(transactionDto);
-        return Ok("Pago!");
+        var result = await _transactionService.PayDirect(Id);
+        return Ok(result);
     }
 
     [HttpPut, Authorize]
@@ -64,7 +64,7 @@ public class TransactionController : ControllerBase
     [Route("delete")]
     public async Task<ActionResult<string>> Delete([FromQuery] Guid Id)
     {
-        //var result = await _transactionService.Create(transactionDto);
+        var result = await _transactionService.Delete(Id);
         return Ok("Apagado");
     }
 
