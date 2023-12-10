@@ -74,5 +74,11 @@ public class TransactionService : ITransactionService
         return Ok("Eliminado");
     }
 
+    public async Task<string> Pay(Guid Id, string Provider)
+    {
+        
+    }
+    Task<string> PayDirect(Guid Id);
+
     
 }
