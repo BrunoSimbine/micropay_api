@@ -46,8 +46,8 @@ public class TokenController : ControllerBase
     [Route("delete")]
     public async Task<ActionResult<string>> Create([FromQuery] Guid Id)
     {
-        //var result = await _tokenService.Create(tokenDto);
-        return Ok("Apagado! ");
+        var result = await _tokenService.Delete(Id);
+        return Ok(result);
     }
 
 
