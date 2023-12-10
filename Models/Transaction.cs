@@ -12,5 +12,5 @@ public class Transaction
     public string Status { get; set; }
     public string Client { get; set; }
     public string Contact { get; set; }
-    public string Provider { get; set; }
+    public string Provider { get; set; } = string.Empty;
 }
