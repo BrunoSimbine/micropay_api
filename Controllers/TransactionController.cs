@@ -54,10 +54,10 @@ public class TransactionController : ControllerBase
 
     [HttpPut, Authorize]
     [Route("pay")]
-    public async Task<ActionResult<string>> Pay([FromQuery] Guid Id)
+    public async Task<ActionResult<string>> Pay([FromQuery] Guid Id, [FromQuery] string Provider)
     {
-        //var result = await _transactionService.Create(transactionDto);
-        return Ok("Pago!");
+        var result = await _transactionService.Pay(Id, Provider);
+        return Ok(result);
     }
 
     [HttpDelete, Authorize]
