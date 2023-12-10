@@ -56,4 +56,12 @@ public class TokenService : ITokenService
 
         return "Criado com sucesso";
     }
+
+    public async Task<string> Delete(Guid Id)
+    {
+        var token = _context.Tokens.FirstOrDefault(e => e.Id == Id);
+        _context.Tokens.Remove(token);
+        await _context.SaveChangesAsync();
+        return "Eliminado";
+    }
 }
