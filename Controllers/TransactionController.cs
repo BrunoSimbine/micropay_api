@@ -44,5 +44,13 @@ public class TransactionController : ControllerBase
         return Ok(result);
     }
 
+    [HttpDelete, Authorize]
+    [Route("delete")]
+    public async Task<ActionResult<string>> Delete([FromQuery] Guid Id)
+    {
+        //var result = await _transactionService.Create(transactionDto);
+        return Ok("Apagado");
+    }
+
 
 }
