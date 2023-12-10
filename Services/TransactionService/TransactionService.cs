@@ -40,7 +40,8 @@ public class TransactionService : ITransactionService
                 Status = transaction.Status,
                 Amount = transaction.Amount,
                 Client = transaction.Client,
-                Contact = transaction.Contact
+                Contact = transaction.Contact,
+                Provider = transaction.Provider
             }).ToListAsync();
         }else{
             var tokens = new List<TransactionViewModel>();
