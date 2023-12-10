@@ -44,7 +44,7 @@ public class TokenController : ControllerBase
 
     [HttpDelete, Authorize]
     [Route("delete")]
-    public async Task<ActionResult<string>> Create([FromQuery] Id)
+    public async Task<ActionResult<string>> Create([FromQuery] Guid Id)
     {
         //var result = await _tokenService.Create(tokenDto);
         return Ok("Apagado! ");
