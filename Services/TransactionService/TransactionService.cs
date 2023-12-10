@@ -66,5 +66,13 @@ public class TransactionService : ITransactionService
         return "Criado com sucesso";
     }
 
+    public async Task<string> Delete(Guid Id)
+    {
+        var transaction = _context.Transactions.FirstOrDefault(e => e.Id == Id);
+        _context.Remove(transaction);
+        await _context.SaveChangesAsync();
+        return Ok("Eliminado");
+    }
+
     
 }
