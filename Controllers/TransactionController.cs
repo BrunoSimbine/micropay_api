@@ -45,8 +45,16 @@ public class TransactionController : ControllerBase
     }
 
     [HttpPut, Authorize]
-    [Route("update")]
+    [Route("pay/direct")]
     public async Task<ActionResult<string>> PayWithCash([FromQuery] Guid Id)
+    {
+        //var result = await _transactionService.Create(transactionDto);
+        return Ok("Pago!");
+    }
+
+    [HttpPut, Authorize]
+    [Route("pay")]
+    public async Task<ActionResult<string>> Pay([FromQuery] Guid Id)
     {
         //var result = await _transactionService.Create(transactionDto);
         return Ok("Pago!");
