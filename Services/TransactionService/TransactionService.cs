@@ -67,7 +67,7 @@ public class TransactionService : ITransactionService
         return "Criado com sucesso";
     }
 
-    public async Task<string> Delete(Guid Id)
+    public async Task<string> Delete(int Id)
     {
         var transaction = _context.Transactions.FirstOrDefault(e => e.Id == Id);
         _context.Remove(transaction);
@@ -75,7 +75,7 @@ public class TransactionService : ITransactionService
         return "Eliminado";
     }
 
-    public async Task<string> Pay(Guid Id, string Provider)
+    public async Task<string> Pay(int Id, string Provider)
     {
         var transaction = _context.Transactions.Find(Id);
         transaction.Provider = Provider;
@@ -85,7 +85,7 @@ public class TransactionService : ITransactionService
         return "Concluido!";
     }
 
-    public async Task<string> PayDirect(Guid Id)
+    public async Task<string> PayDirect(int Id)
     {
         var transaction = _context.Transactions.Find(Id);
         transaction.Provider = "Cash";
