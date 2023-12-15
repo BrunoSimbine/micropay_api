@@ -2,7 +2,7 @@ namespace micropay.ViewModels;
 
 public class TransactionViewModel
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public double Amount { get; set; }
     public string Status { get; set; }
     public string Created { get; set; }
