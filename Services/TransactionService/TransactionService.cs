@@ -34,9 +34,9 @@ public class TransactionService : ITransactionService
             return await _context.Transactions.Where(p => p.TokenId == token.Id).Select(transaction => new TransactionViewModel
             {
                 Id = transaction.Id,
-                Created = transaction.Created,
-                Paid = transaction.Paid,
-                Finished = transaction.Finished,
+                Created = transaction.Created.ToString("dd/MM/yyyy HH:mm"),
+                Paid = transaction.Paid.ToString("dd/MM/yyyy HH:mm"),
+                Finished = transaction.Finished.ToString("dd/MM/yyyy HH:mm"),
                 Status = transaction.Status,
                 Amount = transaction.Amount,
                 Client = transaction.Client,
