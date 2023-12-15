@@ -29,7 +29,7 @@ public class TransactionController : ControllerBase
 
     [HttpGet, Authorize]
     [Route("get")]
-    public async Task<ActionResult<TransactionViewModel>> GetAll([FromQuery] Guid tokenId)
+    public async Task<ActionResult<TransactionViewModel>> GetAll([FromQuery] int tokenId)
     {
         var token = await _context.Tokens.FirstOrDefaultAsync(e => e.Id == tokenId);
         var transactions = await _transactionService.GetTransactions(token);
@@ -46,7 +46,7 @@ public class TransactionController : ControllerBase
 
     [HttpPut, Authorize]
     [Route("pay/direct")]
-    public async Task<ActionResult<string>> PayWithCash([FromQuery] Guid Id)
+    public async Task<ActionResult<string>> PayWithCash([FromQuery] int Id)
     {
         var result = await _transactionService.PayDirect(Id);
         return Ok(result);
@@ -54,7 +54,7 @@ public class TransactionController : ControllerBase
 
     [HttpPut, Authorize]
     [Route("pay")]
-    public async Task<ActionResult<string>> Pay([FromQuery] Guid Id, [FromQuery] string Provider)
+    public async Task<ActionResult<string>> Pay([FromQuery] int Id, [FromQuery] string Provider)
     {
         var result = await _transactionService.Pay(Id, Provider);
         return Ok(result);
@@ -62,7 +62,7 @@ public class TransactionController : ControllerBase
 
     [HttpDelete, Authorize]
     [Route("delete")]
-    public async Task<ActionResult<string>> Delete([FromQuery] Guid Id)
+    public async Task<ActionResult<string>> Delete([FromQuery] int Id)
     {
         var result = await _transactionService.Delete(Id);
         return Ok("Apagado");
