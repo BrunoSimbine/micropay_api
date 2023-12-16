@@ -26,7 +26,7 @@ public class BulkService : IBulkService
         _authService = authService;
     }
 
-    public async Task<string> SendInvoice(int TransactonId)
+    public async Task<string> SendInvoice(int TransactionId)
     {
         var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.Id == TransactionId);
         string url = "https://api.mozesms.com/message/v2";
