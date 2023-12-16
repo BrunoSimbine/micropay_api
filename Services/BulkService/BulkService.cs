@@ -37,11 +37,13 @@ public class BulkService : IBulkService
         string to = "+258" + transaction.Contact.ToString();
         string message = $@"Nova fatura de: {user.Name} {user.Surname}
 
-{token.Name}
+Rederente à {token.Name}
 
 Entidade: 12345
 Ref: {transaction.Id}
 Data: {transaction.Created}
+
+Valido para Deposito BIM, BCI, IZI, Internet Banking, ATM.
 
 Para mais detalhes: https://sparkpaga.com/invoice/{transaction.Id}";
 
