@@ -52,7 +52,7 @@ public class TransactionController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet, Authorize]
+    [HttpGet]
     [Route("pay/invoice")]
     public async Task<ActionResult<string>> PayInvoice([FromQuery] int Id)
     {
