@@ -67,6 +67,8 @@ public class TransactionService : ITransactionService
         _context.Transactions.Add(transaction);
         await _context.SaveChangesAsync();
 
+        var result = await _bulkService.SendInvoice(transaction.Id);
+
         return "Criado com sucesso";
     }
 
