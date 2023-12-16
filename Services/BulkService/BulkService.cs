@@ -37,7 +37,14 @@ public class BulkService : IBulkService
         string to = "+258" + transaction.Contact.ToString();
         string message = $@"Uma fatura foi gerada por: {user.Name} {user.Surname}
 
-Title: {token.Name}";
+Título: {token.Name}
+Entidade: 12345
+Referência: {transaction.Id}
+Data: {transaction.Created}
+
+Válido para Depósito no balcão BIM e BCI, IZI, Internet Banking, ATM.
+
+Acesse o link, para mais detalhes e métodos de pagamento: http://";
 
         using (HttpClient client = new HttpClient())
         {
