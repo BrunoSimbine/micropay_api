@@ -27,10 +27,11 @@ public class BulkService : IBulkService
 
     public async Task<string> SendInvoice(int TransactonId)
     {
+        var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.Id == TransactionId);
         string url = "https://api.mozesms.com/message/v2";
-        string apiKey = "YOUR_API_KEY";
-        string from = "Sender_ID";
-        string to = "+258845888195";
+        string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
+        string from = "AUTHMSG";
+        string to = "+258" + transaction.Contact.ToString();
         string message = "Hello from MozeSMS API";
 
         using (HttpClient client = new HttpClient())
@@ -49,12 +50,12 @@ public class BulkService : IBulkService
             if (response.IsSuccessStatusCode)
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Request successful. Response:");
-                Console.WriteLine(responseContent);
+                
+                return responseContent;
             }
             else
             {
-                Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                return "Request failed";
             }
         }
     }
