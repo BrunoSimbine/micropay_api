@@ -33,7 +33,14 @@ public class BulkService : IBulkService
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string message = "Hello from MozeSMS API";
+        string mensagem = $@"Olá,
+
+                            Bem-vindo ao nosso serviço!
+                            
+                            Esperamos que aproveite sua experiência.
+                            
+                            Atenciosamente,
+                            Equipe de Suporte";
 
         using (HttpClient client = new HttpClient())
         {
