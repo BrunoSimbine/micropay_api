@@ -30,7 +30,7 @@ public class BulkService : IBulkService
         var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.Id == TransactionId);
         string url = "https://api.mozesms.com/message/v2";
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
-        string from = "AUTHMSG";
+        string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
         string message = "Hello from MozeSMS API";
 
