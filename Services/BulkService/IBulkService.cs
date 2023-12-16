@@ -2,7 +2,7 @@ using micropay.Dto;
 using micropay.Models;
 using micropay.ViewModels;
 
-namespace micropay.Services.TokenService;
+namespace micropay.Services.BulkService;
 
 public interface IBulkService
 {
