@@ -7,6 +7,7 @@ using micropay.Data;
 using micropay.Services.AuthService;
 using micropay.Services.UserService;
 using micropay.Services.TokenService;
+using micropay.Services.BulkService;
 using micropay.Services.TransactionService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,6 +56,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<IBulkService, BulkService>();
+
 
 builder.WebHost.ConfigureKestrel(options =>
 {
