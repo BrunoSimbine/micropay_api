@@ -11,4 +11,5 @@ public interface ITransactionService
     Task<string> Delete(int Id);
     Task<string> Pay(int Id, string Provider);
     Task<string> PayDirect(int Id);
+    Task<string> PayInvoice(int Id)
 }
