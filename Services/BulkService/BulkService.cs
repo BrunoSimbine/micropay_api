@@ -14,6 +14,7 @@ namespace micropay.Services.BulkService;
 
 public class BulkService : IBulkService
 {
+    private readonly DataContext _context;
     private readonly IHttpContextAccessor _accessor;
     private readonly IAuthService _authService;
 
