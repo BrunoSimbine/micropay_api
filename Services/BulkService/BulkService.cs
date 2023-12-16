@@ -33,7 +33,7 @@ public class BulkService : IBulkService
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string mensagem = $@"Olá,
+        string message = $@"Olá,
 
                             Bem-vindo ao nosso serviço!
                             
