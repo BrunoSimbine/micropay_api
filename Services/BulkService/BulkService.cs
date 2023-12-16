@@ -29,18 +29,13 @@ public class BulkService : IBulkService
     public async Task<string> SendInvoice(int TransactionId)
     {
         var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.Id == TransactionId);
+        var token = await _context.Tokens.FirstOrDefaultAsync(x => x.Id == transaction.TokenId);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == token.UserId);
         string url = "https://api.mozesms.com/message/v2";
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string message = $@"Olá,
-
-                            Bem-vindo ao nosso serviço!
-                            
-                            Esperamos que aproveite sua experiência.
-                            
-                            Atenciosamente,
-                            Equipe de Suporte";
+        string message = $@"Uma fatura foi gerada por: {user.Name} {user.Surname}";
 
         using (HttpClient client = new HttpClient())
         {
