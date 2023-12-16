@@ -52,6 +52,14 @@ public class TransactionController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet, Authorize]
+    [Route("pay/invoice")]
+    public async Task<ActionResult<string>> PayInvoice([FromQuery] int Id)
+    {
+        var result = await _transactionService.PayInvoice(Id);
+        return Ok(result);
+    }
+
     [HttpPut, Authorize]
     [Route("pay")]
     public async Task<ActionResult<string>> Pay([FromQuery] int Id, [FromQuery] string Provider)
