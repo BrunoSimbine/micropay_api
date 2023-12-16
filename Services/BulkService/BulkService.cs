@@ -44,7 +44,7 @@ Data: {transaction.Created}
 
 Válido para Depósito no balcão BIM e BCI, IZI, Internet Banking, ATM.
 
-Acesse o link, para mais detalhes e métodos de pagamento: http://";
+Acesse o link, para mais detalhes e métodos de pagamento: http://3.94.197.194:5000/api/Transaction/pay/invoice?Id={transaction.Id}";
 
         using (HttpClient client = new HttpClient())
         {
