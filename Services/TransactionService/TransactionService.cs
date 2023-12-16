@@ -95,5 +95,15 @@ public class TransactionService : ITransactionService
         return "Concluido!";
     }
 
+    public async Task<string> PayInvoice(int Id)
+    {
+        var transaction = _context.Transactions.Find(Id);
+        transaction.Provider = "M-Pesa";
+        transaction.Paid = DateTime.Now;
+        transaction.Status = "done";
+        await _context.SaveChangesAsync();
+        return "Concluido!";
+    }
+
     
 }
