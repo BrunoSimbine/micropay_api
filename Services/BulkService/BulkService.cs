@@ -35,7 +35,9 @@ public class BulkService : IBulkService
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string message = $@"Uma fatura foi gerada por: {user.Name} {user.Surname}";
+        string message = $@"Uma fatura foi gerada por: {user.Name} {user.Surname}
+
+Title: {token.Name}";
 
         using (HttpClient client = new HttpClient())
         {
