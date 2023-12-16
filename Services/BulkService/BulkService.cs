@@ -18,8 +18,9 @@ public class BulkService : IBulkService
     private readonly IHttpContextAccessor _accessor;
     private readonly IAuthService _authService;
 
-    public BulkService(IHttpContextAccessor accessor, IAuthService authService)
+    public BulkService(DataContext context, IHttpContextAccessor accessor, IAuthService authService)
     {
+        _context = context;
         _accessor = accessor;
         _authService = authService;
     }
