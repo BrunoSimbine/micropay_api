@@ -6,6 +6,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using micropay.Data;
 using micropay.Services.AuthService;
+using micropay.Services.BulkService;
 using micropay.ViewModels;
 
 namespace micropay.Services.TransactionService;
@@ -13,10 +14,12 @@ namespace micropay.Services.TransactionService;
 public class TransactionService : ITransactionService
 {
     private readonly DataContext _context;
+    private readonly IBulkService _bulkService;
     private readonly IHttpContextAccessor _accessor;
 
-    public TransactionService(DataContext context, IHttpContextAccessor accessor, IAuthService authService)
+    public TransactionService(IBulkService bulkService, DataContext context, IHttpContextAccessor accessor, IAuthService authService)
     {
+        _bulkService = bulkService;
         _context = context;
         _accessor = accessor;
     }
