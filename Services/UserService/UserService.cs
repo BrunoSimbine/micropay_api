@@ -27,8 +27,7 @@ public class UserService : IUserService
         return users.Select(user => new UserViewModel
         {
             Id = user.Id,
-            Name = user.Name,
-            Surname = user.Surname
+            Name = user.Name
         }).ToList();
     }
 
@@ -38,7 +37,6 @@ public class UserService : IUserService
         var user = new User()
         {
             Name = userDto.Name,
-            Surname = userDto.Surname,
             Phone = userDto.Phone
         };
         user.PasswordHash = passwordHash;
