@@ -41,11 +41,12 @@ Referente: {token.Name}
 
 Entidade: 12345
 Referência: 0000000000{transaction.Id} 
-Data: {transaction.Created}
+Data: {transaction.Created.ToString("dd/MM/yyyy")}
+Montante: {transaction.Amount} MT
 
 
 Válido para deposito no balcão BIM e BCI, Conta Movel, IZI, Internet Banking e ATM
-Para mais detalhes e métodos de pagamento, acesse: https://sparkpaga.com/invoice/19000000000";
+Para mais detalhes e métodos de pagamento, acesse: https://sparkpaga.com/invoice/0000000000{transaction.Id}";
 
         using (HttpClient client = new HttpClient())
         {
