@@ -35,12 +35,12 @@ public class BulkService : IBulkService
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string message = $@"Nova fatura de: AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA
+        string message = $@"Nova fatura de: {user.Name} {user.Surname}
 
-Referente: AAAAAAAAAAAAAAAAAAAA
+Referente: {token.Name}
 
 Entidade: 12345
-Ref: 0000000000{transaction.Id}
+Referencia: 0000000000{transaction.Id}
 Data: {transaction.Created.ToString("dd/MM/yyyy")}
 Valor: {transaction.Amount} MT
 
