@@ -35,17 +35,16 @@ public class BulkService : IBulkService
         string apiKey = "149:bxfpc7-oLlFCf-oMImz8-TjVbcY";
         string from = "MOZOTP";
         string to = "+258" + transaction.Contact.ToString();
-        string message = $@"Nova fatura de: {user.Name} {user.Surname}
+        string message = $@"Nova fatura de: AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA
 
-Referente: {token.Name}
+Referente: AAAAAAAAAAAAAAAAAAAA
 
 Entidade: 12345
 Ref: 0000000000{transaction.Id}
 Data: {transaction.Created.ToString("dd/MM/yyyy")}
 Valor: {transaction.Amount} MT
 
-Pague por deposito BIM e BCI, Conta Movel, IZI, Internet Banking e ATM
-Para mais detalhes, acesse: https://sparkpaga.com/invoice/0000000000{transaction.Id}";
+Pague por deposito BIM e BCI, Conta Movel, IZI, Internet Banking e ATM. Para mais detalhes, acesse: https://sparkpaga.com/invoice/0000000000{transaction.Id}";
 
         using (HttpClient client = new HttpClient())
         {
