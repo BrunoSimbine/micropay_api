@@ -94,7 +94,7 @@ public class TokenService : ITokenService
             Total += item.Amount;
         }
         
-    };
+    }
 
     return new WithdrawTemplate
     {
