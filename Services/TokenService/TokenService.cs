@@ -60,20 +60,7 @@ public class TokenService : ITokenService
     public async Task<string> Withdraw(Guid tokenId)
     {
         var id = GetId();
-        var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").Select(transaction => new TransactionViewModel
-    {
-        Id = transaction.Id,
-        Amount = transaction.Amount,
-        Status = transaction.Status,
-        Created = transaction.Created.ToString("dd/MM/yyyy HH:mm"),
-        Paid = transaction.Paid.ToString("dd/MM/yyyy HH:mm"),
-        Finished = transaction.Finished.ToString("dd/MM/yyyy HH:mm"),
-        Client = transaction.Client,
-        Contact = transaction.Contact,
-        Provider = transaction.Provider
-    }).ToListAsync();
-        
-        
+        var transactions = await _context.Transactions.ToListAsync();
         
 
         return "Criado com sucesso";
@@ -85,6 +72,14 @@ public class TokenService : ITokenService
         _context.Tokens.Remove(token);
         await _context.SaveChangesAsync();
         return "Eliminado";
+    }
+
+    private WithdrawTemplate ConvertToWithdraw(List<Transaction> transactions)
+    {
+        return new WithdrawTemplate
+        {
+            
+        }
     }
 
     
