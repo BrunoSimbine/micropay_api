@@ -92,14 +92,18 @@ public class TokenService : ITokenService
             withdrawItems.Add(item);
 
             Total += item.Amount;
+
+            var result = new WithdrawTemplate
+            {
+                Total = Total,
+                Items = withdrawItems
+            }
+
+            return result;
         }
         
     }
 
-    return new WithdrawTemplate
-    {
-        Total = Total,
-        Items = withdrawItems
-    }
+
     
 }
