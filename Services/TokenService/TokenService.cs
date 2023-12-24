@@ -83,8 +83,8 @@ public class TokenService : ITokenService
             {
                 TransactionId = transaction.Id,
                 Name = transaction.Name,
-                OriginalValue = transaction.Amount
-            }
+                OriginalAmount = transaction.Amount
+            };
 
             if (transaction.Provider == "Cash")
             {
@@ -92,7 +92,7 @@ public class TokenService : ITokenService
             }
 
             Total += Item.Value;
-        };
+        }
         
     }
 
