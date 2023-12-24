@@ -66,8 +66,8 @@ public class TokenService : ITokenService
         Amount = transaction.Amount,
         Status = transaction.Status,
         Created = transaction.Created.ToString("dd/MM/yyyy HH:mm"),
-        Paid = transaction.Paid,
-        Finished = transaction.Finished,
+        Paid = transaction.Paid.ToString("dd/MM/yyyy HH:mm"),
+        Finished = transaction.Finished.ToString("dd/MM/yyyy HH:mm"),
         Client = transaction.Client,
         Contact = transaction.Contact,
         Provider = transaction.Provider
