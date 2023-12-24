@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
@@ -44,7 +45,7 @@ public class TokenController : ControllerBase
 
     [HttpPost, Authorize]
     [Route("withdraw")]
-    public async Task<ActionResult<WithdrawTemplate>> Withdraw(Guid Id)
+    public async Task<ActionResult<string>> Withdraw(Guid Id)
     {
         var result = await _tokenService.Withdraw(Id);
         return Ok(result);
@@ -52,7 +53,7 @@ public class TokenController : ControllerBase
 
     [HttpDelete, Authorize]
     [Route("delete")]
-    public async Task<ActionResult<string>> Create([FromQuery] Guid Id)
+    public async Task<ActionResult<string>> Delete([FromQuery] Guid Id)
     {
         var result = await _tokenService.Delete(Id);
         return Ok(result);
