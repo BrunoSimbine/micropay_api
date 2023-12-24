@@ -57,6 +57,23 @@ public class TokenService : ITokenService
         return "Criado com sucesso";
     }
 
+    public async Task<string> Withdraw(Guid tokenId)
+    {
+        var id = GetId();
+        var tokens = _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done");
+        var token = new Token()
+        {
+            Name = tokenDto.Name,
+            Type = tokenDto.Type,
+            Account = tokenDto.Account
+        };
+        token.User = user;
+        _context.Tokens.Add(token);
+        await _context.SaveChangesAsync();
+
+        return "Criado com sucesso";
+    }
+
     public async Task<string> Delete(Guid Id)
     {
         var token = _context.Tokens.FirstOrDefault(e => e.Id == Id);
