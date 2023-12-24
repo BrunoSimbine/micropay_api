@@ -5,7 +5,7 @@ namespace micropay.Models;
 public class WithdrawItem
 {
     public string Name { get; set; }
-    public Guid TransactionId { get; set; } = string.Empty;
+    public int TransactionId { get; set; } 
     public double OriginalValue { get; set; }
     public double Value { get; set; }
 }
