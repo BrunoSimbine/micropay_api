@@ -86,4 +86,11 @@ public class TokenService : ITokenService
         await _context.SaveChangesAsync();
         return "Eliminado";
     }
+
+    private string ConvertToWithdraw(List<TransactionViewModel> transactions)
+    {
+        
+        return "Ok";
+    }
+    
 }
