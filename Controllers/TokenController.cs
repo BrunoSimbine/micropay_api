@@ -42,6 +42,14 @@ public class TokenController : ControllerBase
         return Ok(result);
     }
 
+    [HttpPost, Authorize]
+    [Route("withdraw")]
+    public async Task<ActionResult<string>> Withdraw(TokenDto tokenDto)
+    {
+        var result = await _tokenService.Create(tokenDto);
+        return Ok(result);
+    }
+
     [HttpDelete, Authorize]
     [Route("delete")]
     public async Task<ActionResult<string>> Create([FromQuery] Guid Id)
