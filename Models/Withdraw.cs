@@ -6,5 +6,6 @@ public class WithdrawTemplate
 {
     public Guid Id { get; set; }
     public double Total { get; set; }
+    public bool Confirmed { get; set; }
     public List<WithdrawItem> Items;
 }
