@@ -93,6 +93,8 @@ public class TokenService : ITokenService
 
             Total += item.Amount;
 
+        }
+               
             var result = new WithdrawTemplate
             {
                 Total = Total,
@@ -100,7 +102,6 @@ public class TokenService : ITokenService
             };
 
             return result;
-        }
         
     }
 
