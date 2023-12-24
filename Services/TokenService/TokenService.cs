@@ -82,7 +82,7 @@ public class TokenService : ITokenService
             var item = new WithdrawItem
             {
                 TransactionId = transaction.Id,
-                Name = transaction.Name,
+                Name = transaction.Client,
                 OriginalAmount = transaction.Amount
             };
 
