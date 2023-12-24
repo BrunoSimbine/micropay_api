@@ -60,10 +60,18 @@ public class TokenService : ITokenService
     public async Task<string> Withdraw(Guid tokenId)
     {
         var id = GetId();
-        var transactions = _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").Select(transaction => new TransactionViewModel
+        var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").Select(transaction => new TransactionViewModel
     {
-        
-    });
+        Id = transaction.Id,
+        Amount = transaction.Amount,
+        Status = transaction.Status,
+        Created = transaction.Created,
+        Paid = transaction.Paid,
+        Finished = transaction.Finished,
+        Client = transaction.Client,
+        Contact = transaction.Contact,
+        Provider = transaction.Provider
+    }).ToListAsync();
         
         
         
