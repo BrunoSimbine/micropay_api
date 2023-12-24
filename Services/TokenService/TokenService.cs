@@ -74,7 +74,7 @@ public class TokenService : ITokenService
         return "Eliminado";
     }
 
-    private WithdrawTemplate ConvertToWithdraw(List<Transaction> transactions)
+    private void ConvertToWithdraw(List<Transaction> transactions)
     {
         double Total = 0;
         foreach (var transaction in transactions)
