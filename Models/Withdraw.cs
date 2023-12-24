@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace micropay.Models;
 
-public class User
+public class Withdraw
 {
     public Guid Id { get; set; }
     public double Total { get; set; }
