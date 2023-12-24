@@ -91,7 +91,7 @@ public class TokenService : ITokenService
                 item.Amount = transaction.Amount - 20;
             }
 
-            Total += item.Value;
+            Total += item.Amount;
         }
         
     }
