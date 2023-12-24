@@ -6,5 +6,5 @@ public class Withdraw
 {
     public Guid Id { get; set; }
     public double Total { get; set; }
-    public List<Transaction> transactions;
+    public List<WithdrawItem> Items;
 }
