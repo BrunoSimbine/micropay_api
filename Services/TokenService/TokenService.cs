@@ -77,7 +77,7 @@ public class TokenService : ITokenService
     private WithdrawTemplate ConvertToWithdraw(List<Transaction> transactions)
     {
         double Total = 0;
-        foreach (transaction in transactions)
+        foreach (var transaction in transactions)
         {
             var item = new WithdrawItem
             {
@@ -92,7 +92,7 @@ public class TokenService : ITokenService
             }
 
             Total += Item.Value;
-        }
+        };
         
     }
 
