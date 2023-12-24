@@ -87,10 +87,5 @@ public class TokenService : ITokenService
         return "Eliminado";
     }
 
-    private string ConvertToWithdraw(List<TransactionViewModel> transactions)
-    {
-        
-        return "Ok";
-    }
     
 }
