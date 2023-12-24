@@ -45,7 +45,7 @@ public class TokenController : ControllerBase
 
     [HttpPost, Authorize]
     [Route("withdraw")]
-    public async Task<ActionResult<string>> Withdraw(Guid Id)
+    public async Task<ActionResult<WithdrawTemplate>> Withdraw(Guid Id)
     {
         var result = await _tokenService.Withdraw(Id);
         return Ok(result);
