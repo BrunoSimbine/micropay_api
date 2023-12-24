@@ -81,8 +81,9 @@ public class TokenService : ITokenService
         {
             var item = new WithdrawItem
             {
-                OriginalValue = transaction.Amount,
-                
+                TransactionId = transaction.Id,
+                Name = transaction.Name,
+                OriginalValue = transaction.Amount
             }
 
             if (transaction.Provider == "Cash")
