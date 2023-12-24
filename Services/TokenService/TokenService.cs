@@ -97,7 +97,7 @@ public class TokenService : ITokenService
             {
                 Total = Total,
                 Items = withdrawItems
-            }
+            };
 
             return result;
         }
