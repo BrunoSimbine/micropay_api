@@ -57,11 +57,28 @@ public class TokenService : ITokenService
         return "Criado com sucesso";
     }
 
-    public async Task<WithdrawTemplate> Withdraw(Guid tokenId)
+    public async Task<List<WithdrawItem>> Withdraw(Guid tokenId)
     {
         var transactions = await _context.Transactions.ToListAsync();
-        var result = ConvertToWithdraw(transactions);
-        return result;
+
+        var withdrawItems = new List<WithdrawItem>();
+        foreach (var transaction in transactions)
+        {
+            var item = new WithdrawItem
+            {
+                TransactionId = transaction.Id,
+                Name = transaction.Client,
+                OriginalAmount = transaction.Amount
+            };
+
+            if (transaction.Provider == "Cash")
+            {
+                item.Amount = transaction.Amount - 20;
+            }
+            withdrawItems.Add(item);
+
+        }
+        return withdrawItems;
     }
 
     public async Task<string> Delete(Guid Id)
