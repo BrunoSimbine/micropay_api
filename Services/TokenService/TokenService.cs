@@ -59,7 +59,7 @@ public class TokenService : ITokenService
 
     public async Task<List<WithdrawItem>> Withdraw(Guid tokenId)
     {
-        var transactions = await _context.Transactions.ToListAsync();
+        var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").ToListAsync();
 
         var withdrawItems = new List<WithdrawItem>();
         foreach (var transaction in transactions)
