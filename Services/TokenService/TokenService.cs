@@ -68,7 +68,8 @@ public class TokenService : ITokenService
             {
                 TransactionId = transaction.Id,
                 Name = transaction.Client,
-                OriginalAmount = transaction.Amount
+                OriginalAmount = transaction.Amount,
+                Provider = transaction.Provider
             };
 
             if (transaction.Provider == "Cash")
