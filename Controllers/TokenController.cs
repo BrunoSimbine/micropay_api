@@ -47,8 +47,13 @@ public class TokenController : ControllerBase
     [Route("withdraw")]
     public async Task<ActionResult<WithdrawTemplate>> Withdraw(Guid Id)
     {
-        var result = await _tokenService.Withdraw(Id);
-        return Ok(new {Items = result});
+        var items = await _tokenService.Withdraw(Id);
+        double total = 0;
+        foreach (var item in items)
+        {
+            total += item.Amount;
+        }
+        return Ok(new {Total = total, Items = items});
     }
 
     [HttpDelete, Authorize]
