@@ -9,5 +9,5 @@ public interface ITokenService
     Task<string> Create(TokenDto tokenDto);
     Task<List<TokenViewModel>> GetTokens();
     Task<string> Delete(Guid Id);
-    Task<WithdrawTemplate> Withdraw(Guid tokenId);
+    Task<List<WithdrawItem>> Withdraw(Guid tokenId);
 }
