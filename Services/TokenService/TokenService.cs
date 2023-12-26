@@ -74,7 +74,9 @@ public class TokenService : ITokenService
 
             if (transaction.Provider == "Cash")
             {
-                item.Amount = transaction.Amount - 20;
+                item.Amount = -20;
+            }else{
+                item.Amount = item.OriginalAmount - 20;
             }
             withdrawItems.Add(item);
 
