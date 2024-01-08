@@ -45,7 +45,7 @@ public class TokenController : ControllerBase
 
     [HttpPost, Authorize]
     [Route("withdraw/get")]
-    public async Task<ActionResult<WithdrawTemplate>> GetWithdraw([FromQuery] Guid Id, [FromQuery] string Bank)
+    public async Task<ActionResult<string>> GetWithdraw([FromQuery] Guid Id, [FromQuery] string Bank)
     {
         var items = await _tokenService.GetWithdraw(Id);
         double total = 0;
