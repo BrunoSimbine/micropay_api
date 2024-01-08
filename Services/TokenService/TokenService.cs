@@ -114,7 +114,7 @@ public class TokenService : ITokenService
         }
 
         double total = 0;
-        foreach (var item in WithdrawItems)
+        foreach (var item in withdrawItems)
         {
             total += item.Amount;
         }
