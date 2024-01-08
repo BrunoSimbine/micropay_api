@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace micropay.Models;
 
-public class WithdrawTemplate
+public class Withdraw
 {
     public Guid Id { get; set; }
     public double Total { get; set; }
     public bool Confirmed { get; set; }
-    public List<WithdrawItem> Items;
+    public string Bank { get; set; }
+    public string Account { get; set; }
 }
