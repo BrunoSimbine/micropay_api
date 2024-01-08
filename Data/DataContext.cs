@@ -20,5 +20,6 @@ public class DataContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<Token> Tokens { get; set; }
+    public DbSet<Withdraw> Withdraws { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
 }
