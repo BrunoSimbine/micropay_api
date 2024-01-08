@@ -136,7 +136,7 @@ public class TokenService : ITokenService
         {
             var transaction = _context.Transactions.Find(item.Id);
             transaction.WithdrawId = withdraw.Id;
-            transaction.Status = "progress"
+            transaction.Status = "progress";
         }
 
         await _context.SaveChangesAsync();
