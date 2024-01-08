@@ -123,8 +123,21 @@ public class TokenService : ITokenService
 
         var withdraw = new Withdraw
         {
-            
+            User = user.Name,
+            Total = total,
+            Type = token.Type,
+            Account = token.Account
         };
+
+        _context.Withdraws.Add(withdraw);
+        await _context.SaveChangesAsync();
+
+        foreach (var transaction in transactions)
+        {
+            transaction.WithdrawId = withdraw.Id;
+            transaction.Status = "in progress"
+        }
+
         return withdrawItems;
     }
 
