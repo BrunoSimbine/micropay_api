@@ -84,11 +84,15 @@ public class TokenService : ITokenService
         return withdrawItems;
     }
 
-    public async Task<List<WithdrawItem>> Withdraw(Guid tokenId)
+    public async Task<string> PayWithdraw(Guid tokenId)
     {
+
         var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").ToListAsync();
+        var token = await _context.Tokens.FirstOrDefaultAsync(e => e.Id == tokenId);
+        var user = await _context.Users.FirstOrDefaultAsync(e => e.Id == token.UserId);
 
         var withdrawItems = new List<WithdrawItem>();
+
         foreach (var transaction in transactions)
         {
             var item = new WithdrawItem
@@ -108,6 +112,11 @@ public class TokenService : ITokenService
             withdrawItems.Add(item);
 
         }
+
+        var withdraw = new Withdraw
+        {
+            
+        };
         return withdrawItems;
     }
 
