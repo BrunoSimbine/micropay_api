@@ -5,8 +5,8 @@ public class Transaction
     public Token Token { get; set; }
     public Guid TokenId { get; set; }
 
-    public Withdraw Withdraw? { get; set; }
-    public Guid WithdrawId? { get; set; }
+    public Withdraw Withdraw { get; set; }
+    public Guid WithdrawId { get; set; }
 
     public int Id { get; set; }
     public DateTime Created { get; set; } = DateTime.Now;
