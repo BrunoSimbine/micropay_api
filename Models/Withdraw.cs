@@ -10,6 +10,6 @@ public class Withdraw
     public string User { get; set; }
     public double Total { get; set; }
     public bool Confirmed { get; set; }
-    public string Bank { get; set; }
+    public string Type { get; set; }
     public string Account { get; set; }
 }
