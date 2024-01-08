@@ -74,7 +74,34 @@ public class TokenService : ITokenService
 
             if (transaction.Provider == "Cash")
             {
-                item.Amount = -20;
+                item.Amount = -5;
+            }else{
+                item.Amount = item.OriginalAmount - 20;
+            }
+            withdrawItems.Add(item);
+
+        }
+        return withdrawItems;
+    }
+
+    public async Task<List<WithdrawItem>> Withdraw(Guid tokenId)
+    {
+        var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").ToListAsync();
+
+        var withdrawItems = new List<WithdrawItem>();
+        foreach (var transaction in transactions)
+        {
+            var item = new WithdrawItem
+            {
+                TransactionId = transaction.Id,
+                Name = transaction.Client,
+                OriginalAmount = transaction.Amount,
+                Provider = transaction.Provider
+            };
+
+            if (transaction.Provider == "Cash")
+            {
+                item.Amount = -5;
             }else{
                 item.Amount = item.OriginalAmount - 20;
             }
@@ -91,40 +118,6 @@ public class TokenService : ITokenService
         await _context.SaveChangesAsync();
         return "Eliminado";
     }
-
-    private WithdrawTemplate ConvertToWithdraw(List<Transaction> transactions)
-    {
-        double Total = 0;
-        var withdrawItems = new List<WithdrawItem>();
-        foreach (var transaction in transactions)
-        {
-            var item = new WithdrawItem
-            {
-                TransactionId = transaction.Id,
-                Name = transaction.Client,
-                OriginalAmount = transaction.Amount
-            };
-
-            if (transaction.Provider == "Cash")
-            {
-                item.Amount = transaction.Amount - 20;
-            }
-            withdrawItems.Add(item);
-
-            Total += item.Amount;
-
-        }
-               
-            var result = new WithdrawTemplate
-            {
-                Total = Total,
-                Items = withdrawItems
-            };
-
-            return result;
-        
-    }
-
 
     
 }
