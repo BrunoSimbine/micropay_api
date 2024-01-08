@@ -47,7 +47,7 @@ public class TokenController : ControllerBase
     [Route("withdraw/get")]
     public async Task<ActionResult<WithdrawTemplate>> GetWithdraw([FromQuery] Guid Id, [FromQuery] string Bank)
     {
-        var items = await _tokenService.Withdraw(Id);
+        var items = await _tokenService.GetWithdraw(Id);
         double total = 0;
         foreach (var item in items)
         {
@@ -60,8 +60,8 @@ public class TokenController : ControllerBase
     [Route("withdraw/pay")]
     public async Task<ActionResult<string>> PayWithdraw([FromQuery] Guid Id)
     {
-    
-        return Ok("Pago com sucesso");
+        var result = await _tokenService.PayWithdraw(Id);
+        return Ok(result);
     }
 
     [HttpDelete, Authorize]
