@@ -57,7 +57,7 @@ public class TokenService : ITokenService
         return "Criado com sucesso";
     }
 
-    public async Task<List<WithdrawItem>> Withdraw(Guid tokenId)
+    public async Task<List<WithdrawItem>> GetWithdraw(Guid tokenId)
     {
         var transactions = await _context.Transactions.Where(e => e.TokenId == tokenId && e.Status == "done").ToListAsync();
 
