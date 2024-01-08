@@ -113,6 +113,14 @@ public class TokenService : ITokenService
 
         }
 
+        double total = 0;
+        foreach (var item in WithdrawItems)
+        {
+            total += item.Amount;
+        }
+        
+   
+
         var withdraw = new Withdraw
         {
             
