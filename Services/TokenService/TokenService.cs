@@ -132,13 +132,15 @@ public class TokenService : ITokenService
         _context.Withdraws.Add(withdraw);
         await _context.SaveChangesAsync();
 
-        foreach (var transaction in transactions)
+        foreach (var item in transactions)
         {
+            var transaction = _context.Transactions.Find(item.Id);
             transaction.WithdrawId = withdraw.Id;
-            transaction.Status = "in progress"
+            transaction.Status = "progress"
         }
 
-        return withdrawItems;
+        await _context.SaveChangesAsync();
+        return "Ok";
     }
 
     public async Task<string> Delete(Guid Id)
