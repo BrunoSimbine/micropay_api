@@ -8,6 +8,7 @@ public class User
     public string Name { get; set; } = string.Empty;
     public bool IsActive { get; set; }
     public bool IsBusiness { get; set; }
+    public bool IsVerified { get; set; }
     public string Role { get; set; } = "user";
     public string Phone { get; set; } = string.Empty;
     public byte[] PasswordHash { get; set; }
