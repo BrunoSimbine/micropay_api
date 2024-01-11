@@ -6,6 +6,7 @@ public class User
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
+    public bool Active { get; set; }
     public string Role { get; set; } = "user";
     public string Phone { get; set; } = string.Empty;
     public byte[] PasswordHash { get; set; }
