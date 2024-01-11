@@ -46,5 +46,19 @@ public class UserController : ControllerBase
         return Ok();
     }
 
+    [HttpPost, Authorize]
+    [Route("activate")]
+    public async Task<ActionResult<List<User>>> GetBusinessUsers()
+    {
+        return Ok();
+    }
+
+    [HttpPost, Authorize]
+    [Route("verify")]
+    public async Task<ActionResult<List<User>>> GetBusinessUsers()
+    {
+        return Ok();
+    }
+
 
 }
