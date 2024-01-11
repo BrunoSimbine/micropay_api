@@ -29,7 +29,7 @@ public class PaymentController : ControllerBase
 
     [HttpGet]
     [Route("mpesa")]
-    public async Task<ActionResult<TransactionViewModel>> PayWithMpesa([FromQuery] Guid tokenId)
+    public async Task<ActionResult<bool>> PayWithMpesa([FromQuery] int TransactionId)
     {
         return Ok();
     }
