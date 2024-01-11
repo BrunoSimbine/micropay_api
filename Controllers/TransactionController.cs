@@ -44,30 +44,6 @@ public class TransactionController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPut, Authorize]
-    [Route("pay/direct")]
-    public async Task<ActionResult<string>> PayWithCash([FromQuery] int Id)
-    {
-        var result = await _transactionService.PayDirect(Id);
-        return Ok(result);
-    }
-
-    [HttpGet]
-    [Route("pay/invoice")]
-    public async Task<ActionResult<string>> PayInvoice([FromQuery] int Id)
-    {
-        var result = await _transactionService.PayInvoice(Id);
-        return Ok(result);
-    }
-
-    [HttpPut, Authorize]
-    [Route("pay")]
-    public async Task<ActionResult<string>> Pay([FromQuery] int Id, [FromQuery] string Provider)
-    {
-        var result = await _transactionService.Pay(Id, Provider);
-        return Ok(result);
-    }
-
     [HttpDelete, Authorize]
     [Route("delete")]
     public async Task<ActionResult<string>> Delete([FromQuery] int Id)
