@@ -27,9 +27,16 @@ public class PaymentController : ControllerBase
         _context = context;
     }
 
-    [HttpGet]
+    [HttpPost]
     [Route("mpesa")]
-    public async Task<ActionResult<bool>> PayWithMpesa([FromQuery] int TransactionId)
+    public async Task<ActionResult<bool>> PayWithMpesa([FromQuery] int transactionId)
+    {
+        return Ok();
+    }
+
+    [HttpPost]
+    [Route("emola")]
+    public async Task<ActionResult<bool>> PayWithEmola([FromQuery] int transactionId)
     {
         return Ok();
     }
