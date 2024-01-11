@@ -62,6 +62,20 @@ public class PaymentController : ControllerBase
         return Ok();
     }
 
+    [HttpPost]
+    [Route("paypal")]
+    public async Task<ActionResult<bool>> PayWithPayPal()
+    {
+        return Ok();
+    }
+
+    [HttpPost]
+    [Route("bitcoin")]
+    public async Task<ActionResult<bool>> PayWithBitcoin()
+    {
+        return Ok();
+    }
+
 
 
 }
