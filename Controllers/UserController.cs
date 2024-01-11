@@ -39,5 +39,12 @@ public class UserController : ControllerBase
         return Ok();
     }
 
+    [HttpPost, Authorize]
+    [Route("get/business")]
+    public async Task<ActionResult<List<User>>> GetBusinessUsers()
+    {
+        return Ok();
+    }
+
 
 }
