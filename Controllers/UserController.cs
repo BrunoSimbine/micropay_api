@@ -74,5 +74,12 @@ public class UserController : ControllerBase
         return Ok();
     }
 
+    [HttpPost, Authorize]
+    [Route("update/role")]
+    public async Task<ActionResult<bool>> UpdateRole()
+    {
+        return Ok();
+    }
+
 
 }
