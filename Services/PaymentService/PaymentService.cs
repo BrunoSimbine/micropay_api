@@ -45,4 +45,9 @@ public class PaymentService : IPaymentService
     {
         return true;
     }
+
+    public async Task<bool> PayWithCash()
+    {
+        return true;
+    }
 }
