@@ -14,4 +14,5 @@ public interface IPaymentService
     Task<bool> PayWithBitcoin();
     Task<bool> PayWithPaypal();
     Task<bool> PayWithSIMO();
+    Task<bool> PayWithCash();
 }
