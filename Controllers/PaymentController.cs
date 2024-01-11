@@ -41,6 +41,27 @@ public class PaymentController : ControllerBase
         return Ok();
     }
 
+    [HttpPost]
+    [Route("mpesa/direct")]
+    public async Task<ActionResult<bool>> PayDirectWithMpesa(TransactionViewModel transactionViewModel)
+    {
+        return Ok();
+    }
+
+    [HttpPost]
+    [Route("emola/direct")]
+    public async Task<ActionResult<bool>> PayDirectWithEmola(TransactionViewModel transactionViewModel)
+    {
+        return Ok();
+    }
+
+    [HttpPost]
+    [Route("card")]
+    public async Task<ActionResult<bool>> PayWithCard()
+    {
+        return Ok();
+    }
+
 
 
 }
