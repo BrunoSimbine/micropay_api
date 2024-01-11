@@ -21,18 +21,22 @@ public class UserController : ControllerBase
 
     public UserController(DataContext context, IUserService userService)
     {
-        _authService = authService;
+        _userService = userService;
         _context = context;
     }
 
-    [HttpPost]
-    [Route("register")]
-    public async Task<ActionResult<User>> Regiser(UserDto userDto)
+    [HttpGet, Authorize]
+    [Route("get")]
+    public async Task<ActionResult<List<User>>> GetAllUsers()
     {
-        var user = _userService.Create(userDto);
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return Ok(user);
+        return Ok();
+    }
+
+    [HttpGet, Authorize]
+    [Route("get/inactive")]
+    public async Task<ActionResult<List<User>>> GetInactiveUsers()
+    {
+        return Ok();
     }
 
 
