@@ -33,6 +33,13 @@ public class UserController : ControllerBase
     }
 
     [HttpGet, Authorize]
+    [Route("get")]
+    public async Task<ActionResult<User>> GetUser([FromQuery] Guid UserId)
+    {
+        return Ok();
+    }
+
+    [HttpGet, Authorize]
     [Route("get/inactive")]
     public async Task<ActionResult<List<User>>> GetInactiveUsers()
     {
@@ -41,6 +48,13 @@ public class UserController : ControllerBase
 
     [HttpPost, Authorize]
     [Route("get/business")]
+    public async Task<ActionResult<List<User>>> GetBusinessUsers()
+    {
+        return Ok();
+    }
+
+    [HttpPost, Authorize]
+    [Route("get/unverified")]
     public async Task<ActionResult<List<User>>> GetBusinessUsers()
     {
         return Ok();
