@@ -33,7 +33,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet, Authorize]
-    [Route("get")]
+    [Route("get/one")]
     public async Task<ActionResult<User>> GetUser([FromQuery] Guid UserId)
     {
         return Ok();
