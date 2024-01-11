@@ -27,9 +27,9 @@ public class PaymentController : ControllerBase
         _context = context;
     }
 
-    [HttpGet, Authorize]
-    [Route("get")]
-    public async Task<ActionResult<TransactionViewModel>> GetAll([FromQuery] Guid tokenId)
+    [HttpGet]
+    [Route("mpesa")]
+    public async Task<ActionResult<TransactionViewModel>> PayWithMpesa([FromQuery] Guid tokenId)
     {
         return Ok();
     }
